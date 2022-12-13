@@ -11,7 +11,11 @@ import { useEffect } from 'react';
 
 function App() {
 
- 
+  const [filmesURL, setFilmesURL] = useState([])
+  const [nome, setNome] = useState("")
+  const [cpf, setCpf] = useState("")
+  const [assentos, setAssentos] = useState([])
+  const [sessoes, setSessoes] = useState([])
 
 
   return (
@@ -25,9 +29,9 @@ function App() {
       <BrowserRouter>
         <Routes>
 
-          <Route path="/" element={<TelaFilmes />} />
-          <Route path='/sessoes/:idFilme' element={<TelaSessoes />} />
-          <Route path='/assentos/:idSessao' element={<TelaAssentos />} />
+          <Route path="/" element={<TelaFilmes filmesURL={filmesURL} setFilmesURL={setFilmesURL}/>} />
+          <Route path='/sessoes/:idFilme' element={<TelaSessoes sessoes={sessoes} setSessoes={setSessoes} />} />
+          <Route path='/assentos/:idSessao' element={<TelaAssentos assentos={assentos} setAssentos={setAssentos}/>} />
           <Route path='/sucesso' element={<TelaSucesso />} />
 
         </Routes>

@@ -5,12 +5,12 @@ import { useEffect, useState } from "react"
 import RodapeAssento from "./RodapeAssento";
 
 
-export default function TelaAssentos() {
+export default function TelaAssentos({assentos,setAssentos}) {
 
     const { idSessao } = useParams();
     console.log(idSessao);
 
-    const [assentos, setAssentos] = useState([])
+    
     
     
 

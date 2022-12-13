@@ -6,7 +6,7 @@ import Rodape from "./Rodape";
 import { Link } from "react-router-dom";
 
 
-export default function TelaSessoes() {
+export default function TelaSessoes({sessoes,setSessoes}) {
 
     const { idFilme } = useParams();
     console.log(idFilme);
@@ -14,9 +14,8 @@ export default function TelaSessoes() {
 
 
 
-    const [sessoes, setSessoes] = useState([])
 
-    const[idSessao, setIdSessao] = useState(0)
+    
 
 
 
