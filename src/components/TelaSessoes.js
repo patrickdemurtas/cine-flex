@@ -66,7 +66,7 @@ export default function TelaSessoes({sessoes,setSessoes}) {
             </ ConteudoSessoes>
 
 
-            <Rodape title={title} URL={URL} />
+            <Rodape data-test="footer" title={title} URL={URL} />
         </>
     )
 }
@@ -81,18 +81,18 @@ function CarregandoSessoes({ sessoes }) {
         return (
             sessoes.days.map((sd) => (
                 <>
-                    <DiaSemana>
+                    <DiaSemana data-test="movie-day">
                         <h1>{sd.weekday} - {sd.date}</h1>
                     </DiaSemana>
 
-                    <Link to={`/assentos/${sd.showtimes[0].id}`}>
+                    <Link data-test="showtime" to={`/assentos/${sd.showtimes[0].id}`}>
                     <ButtonSessao>
                         <p>{sd.showtimes[0].name}</p>
                     </ButtonSessao>
                     </ Link>
                   
 
-                    <Link to={`/assentos/${sd.showtimes[1].id}`}>
+                    <Link  data-test="showtime" to={`/assentos/${sd.showtimes[1].id}`}>
                     <ButtonSessao>
                         <p>{sd.showtimes[1].name}</p>
                     </ButtonSessao>

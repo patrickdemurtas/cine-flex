@@ -34,7 +34,7 @@ export default function TelaFilmes({filmesURL,setFilmesURL}) {
 
                 {filmesURL.map((f) => (
                     <Link to={`/sessoes/${f.id}`}>
-                    <CardFilme >
+                    <CardFilme data-test="movie">
                         <img  src={f.posterURL} />
                     </CardFilme>
                     </Link>

@@ -16,6 +16,7 @@ function App() {
   const [cpf, setCpf] = useState("")
   const [assentos, setAssentos] = useState([])
   const [sessoes, setSessoes] = useState([])
+  const [id, setId] = useState([])
 
 
   return (
@@ -31,7 +32,7 @@ function App() {
 
           <Route path="/" element={<TelaFilmes filmesURL={filmesURL} setFilmesURL={setFilmesURL}/>} />
           <Route path='/sessoes/:idFilme' element={<TelaSessoes sessoes={sessoes} setSessoes={setSessoes} />} />
-          <Route path='/assentos/:idSessao' element={<TelaAssentos assentos={assentos} setAssentos={setAssentos}/>} />
+          <Route path='/assentos/:idSessao' element={<TelaAssentos assentos={assentos} setAssentos={setAssentos} id={id} setId={setId}/>} />
           <Route path='/sucesso' element={<TelaSucesso />} />
 
         </Routes>

@@ -3,9 +3,10 @@ import axios from "axios"
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import RodapeAssento from "./RodapeAssento";
+import Formularios from "./Formularios";
 
 
-export default function TelaAssentos({assentos,setAssentos}) {
+export default function TelaAssentos({assentos,setAssentos,id,setId}) {
 
     const { idSessao } = useParams();
     console.log(idSessao);
@@ -46,7 +47,7 @@ export default function TelaAssentos({assentos,setAssentos}) {
 
 
             <ConteudoAssentos>
-                <CarregandoAssentos assentos={assentos} />
+                <CarregandoAssentos id={id} setId={setId} assentos={assentos} />
             </ConteudoAssentos>
 
             <DivExemplos>
@@ -57,7 +58,9 @@ export default function TelaAssentos({assentos,setAssentos}) {
 
             </DivExemplos>
 
-            <CarregandoRodape assentos={assentos} />
+            <Formularios />
+
+            <CarregandoRodape data-test="footer" assentos={assentos} />
 
 
 
@@ -70,7 +73,9 @@ export default function TelaAssentos({assentos,setAssentos}) {
 
 
 
-function CarregandoAssentos({ assentos }) {
+function CarregandoAssentos({ assentos, id, setId }) {
+
+
 
     if (assentos.length === 0) {
         return (
@@ -84,7 +89,7 @@ function CarregandoAssentos({ assentos }) {
             assentos.seats.map((as) => (
                 <>
 
-                    <AssentosDispOuNao cor={as.isAvailable} onClick={() => funClicar(as)}>
+                    <AssentosDispOuNao data-test="seat" cor={as.isAvailable} id={id} setId={setId} onClick={() => funClicar(as)}>
                         <p>{as.name}</p>
                     </AssentosDispOuNao>
 
@@ -96,19 +101,20 @@ function CarregandoAssentos({ assentos }) {
         )
 
     }
-}
-
-
-
-
-function funClicar(as) {
-    if (as.isAvailable === false) {
-        alert('Esse assento não está disponível')
-    } else if (as.isAvailable === true){
-        return true
+    function funClicar(as,id,setId) {
+        if (as.isAvailable === false) {
+            alert('Esse assento não está disponível')
+        } else if (as.isAvailable === true){
+            setId([...as.id])
+        }
+    
     }
-
+    
 }
+
+
+
+
 
 
 
