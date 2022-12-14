@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import {cores, coresAssentos} from "./coresAssentos"
+import {coresBordas, cores, coresAssentos} from "./coresAssentos"
 
 export default function Assento({ assentos, selecionados, setSelecionado, estaSelecionado,as, situacaoAssentos}) {
 
@@ -33,7 +33,7 @@ export default function Assento({ assentos, selecionados, setSelecionado, estaSe
            
                 <>
 
-                    <AssentosDispOuNao data-test="seat" disp={disp} cores={cores} onClick={() => situacaoAssentos(as)} >
+                    <AssentosDispOuNao data-test="seat" disp={disp} cores={cores} coresBordas={coresBordas} onClick={() => situacaoAssentos(as)} >
                         <p>{as.name}</p>
                     </AssentosDispOuNao>
 
@@ -65,6 +65,7 @@ width: 26px;
 height: 26px;
 border-radius: 12px;
 background-color: ${props => cores[props.disp]};
+border: 2px solid ${props => coresBordas[props.disp]};
 margin-right: 10px;
 margin-bottom: 18px;
 p{
