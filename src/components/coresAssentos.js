@@ -1,0 +1,1 @@
+export const cores = {disponivel: "#C3CFD9", indisponivel: "#FBE192", selec: "#1AAE9E"}

@@ -70,7 +70,9 @@ export default function TelaSessoes({sessoes,setSessoes}) {
         </>
     )
 }
-
+function recarregarPagina(){
+    window.onload()
+}
 
 function CarregandoSessoes({ sessoes }) {
     if (sessoes.length === 0) {
@@ -85,15 +87,15 @@ function CarregandoSessoes({ sessoes }) {
                         <h1>{sd.weekday} - {sd.date}</h1>
                     </DiaSemana>
 
-                    <Link data-test="showtime" to={`/assentos/${sd.showtimes[0].id}`}>
-                    <ButtonSessao>
+                    <Link data-test="showtime" onClick={recarregarPagina} to={`/assentos/${sd.showtimes[0].id}`}>
+                    <ButtonSessao  >
                         <p>{sd.showtimes[0].name}</p>
                     </ButtonSessao>
                     </ Link>
                   
 
-                    <Link  data-test="showtime" to={`/assentos/${sd.showtimes[1].id}`}>
-                    <ButtonSessao>
+                    <Link  data-test="showtime" onClick={recarregarPagina} to={`/assentos/${sd.showtimes[1].id}`}>
+                    <ButtonSessao >
                         <p>{sd.showtimes[1].name}</p>
                     </ButtonSessao>
                     </Link>
