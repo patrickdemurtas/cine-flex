@@ -26,13 +26,7 @@ height: 117px;
 background-color: #DFE6ED;
 display: flex;
 align-items: center;
-h1{
-    font-family: Roboto;
-    font-weight: 400;
-    font-size: 20px;
-    margin-left: 10px;
 
-}
 `
 
 const CardRodapeAssento = styled.div`
@@ -52,4 +46,11 @@ img{
 const QuebraLinha = styled.div`
 display: flex;
 flex-direction: column;
+h1{
+    font-family: Roboto;
+    font-weight: 400;
+    font-size: 20px;
+    margin-left: 10px;
+
+}
 `

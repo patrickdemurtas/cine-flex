@@ -1,18 +1,18 @@
 import styled from "styled-components"
 import axios from "axios"
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { useEffect, useState } from "react"
 import RodapeAssento from "./RodapeAssento";
-import Formularios from "./Formularios";
+
 import Assento from "./Assento";
 
 
-export default function TelaAssentos({ assentos, setAssentos, selecionados, setSelecionados }) {
+export default function TelaAssentos({ assentos, setAssentos, selecionados, setSelecionados, nome, setNome, cpf, setCpf, sucesso, setSucesso }) {
 
     const { idSessao } = useParams();
     console.log(idSessao);
 
-
+    const navigate = useNavigate();
 
 
 
@@ -41,7 +41,20 @@ export default function TelaAssentos({ assentos, setAssentos, selecionados, setS
         }
     }
 
+    function reservar(e) {
+        e.preventDefault()
+        const ids = selecionados.map(s => s.id)
 
+        const pedido = { ids: ids, name: nome, cpf: cpf }
+
+        const promise = axios.post("https://mock-api.driven.com.br/api/v8/cineflex/seats/book-many", pedido);
+        promise.then((res) => setSucesso({ hora: assentos.name, data: assentos.day.date, titulo: assentos.movie.title, poltronas: selecionados.map(s => s.name), nome: nome, cpf: cpf }));
+        navigate("/sucesso");
+        promise.catch((erro) => console.log(erro.responde.data))
+
+
+
+    }
 
 
 
@@ -77,7 +90,14 @@ export default function TelaAssentos({ assentos, setAssentos, selecionados, setS
 
             </DivExemplos>
 
-            <Formularios />
+            <Input onSubmit={reservar}>
+                <p>Nome do comprador:</p>
+                <input data-test="client-name" placeholder="Digite o seu nome" value={nome} onChange={e => setNome(e.target.value)} required/>
+                <p>CPF do comprador:</p>
+                <input data-teste="client-cpf" placeholder="Digite o seu CPF" value={cpf} onChange={e => setCpf(e.target.value)} required/>
+                <button data-teste="book-seat-btn"  type="submit">Reservar assento(s)</button>
+
+            </Input>
 
             <CarregandoRodape data-test="footer" assentos={assentos} />
 
@@ -219,4 +239,69 @@ p{
     font-size: 11px;
 }
 
+`
+
+const Input = styled.form`
+p{
+    font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+color: #293845;
+margin-top: 10px;
+}
+input{
+    width: 327px;
+height: 51px;
+background: #FFFFFF;
+border: 1px solid #D5D5D5;
+border-radius: 3px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+color: #000000;
+padding-left: 18px;
+margin-bottom: 7px;
+margin-top: 3px;
+::placeholder{font-family: 'Roboto';
+font-style: italic;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+color: #AFAFAF;}
+:focus{outline: none;}
+}
+button{
+    width: 225px;
+height: 42px;
+background: #E8833A;
+border-radius: 3px;
+border: none;
+margin-block: 50px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 21px;
+letter-spacing: 0.04em;
+margin-inline: auto;
+color: #FFFFFF;
+}
+margin-bottom:100px;
+padding-inline: 24px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+& p:nth-child(1){
+    position: relative;
+    left: -79px;
+  }
+& p:nth-child(3){
+    position: relative;
+    left: -87px;
+  }
 `

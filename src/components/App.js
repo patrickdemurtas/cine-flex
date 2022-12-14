@@ -17,6 +17,7 @@ function App() {
   const [assentos, setAssentos] = useState([])
   const [sessoes, setSessoes] = useState([])
   const [selecionados, Setselecionados] = useState([])
+  const [sucesso, setSucesso] = useState(undefined)
 
 
   return (
@@ -32,8 +33,8 @@ function App() {
 
           <Route path="/" element={<TelaFilmes filmesURL={filmesURL} setFilmesURL={setFilmesURL}/>} />
           <Route path='/sessoes/:idFilme' element={<TelaSessoes sessoes={sessoes} setSessoes={setSessoes} />} />
-          <Route path='/assentos/:idSessao' element={<TelaAssentos assentos={assentos} setAssentos={setAssentos} selecionados={selecionados} setSelecionados={Setselecionados}/>} />
-          <Route path='/sucesso' element={<TelaSucesso />} />
+          <Route path='/assentos/:idSessao' element={<TelaAssentos assentos={assentos} setAssentos={setAssentos} selecionados={selecionados} setSelecionados={Setselecionados} nome={nome} setNome={setNome} cpf={cpf} setCpf={setCpf} sucesso={sucesso} setSucesso={setSucesso}/>} />
+          <Route path='/sucesso' element={<TelaSucesso sucesso={sucesso} setSucesso={setSucesso} />} />
 
         </Routes>
 
@@ -60,7 +61,7 @@ background-color: #C3CFD9;
 
 h1{
   color: #E8833A;
-  font-family: roboto;
+  font-family: Roboto;
   font-size: 34px;
   display: flex;
   align-items: center;
