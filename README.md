@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Cine-Flex
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição geral:
 
-## Available Scripts
+Este app consiste em um site para reserva e compra de ingressos para filmes em um cinema, onde há, a princípio, a lista de filmes disponíveis, as sessões existentes para cada filme escolhido, uma tela de assentos onde se pode escolher um ou mais assentos (com um esquema de cores para determinar se o assento está disponível/indisponível e/ou selecionado), tela de confirmação de compra e tela de sucesso exibindo as informações da compra.
 
-In the project directory, you can run:
+## Funcionalidades:
 
-### `npm start`
+- **Listagem de filmes**: a primeira tela carrega a lista de filmes disponíveis no cinema;
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Listagem de sessões**: ao escolher um filme, o usuário poderá ver os horários das sessões disponíveis para o filme escolhido (dia da semana - dia do mês xx/xx/xxxx, seguido de botões clicáveis com os horários), além do rodapé exibindo o título e imagem do filme escolhido;
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Seleção de assentos**: nesta tela, o usuário poderá selecionar os assentos que deseja comprar (há uma legenda de cores para determinar se o assento está disponível, indisponível ou se foi selecionado pelo usuário), não há limite para o número de assentos a serem selecionados, desde que estejam disponíveis; os assentos podem ser desselecionados/desmarcados se o usuário clicar uma segunda vez em algum que já esteja selecionado e selecionado novamente por um terceiro clique (e assim por diante), se for da vontade do usuário. Há dois espaços/forms para o usuário inserir o 'Nome do comprador' e 'CPF do comprador', seguidos por um botão para reservar os assentos escolhidos. esta tela exibe ainda, em seu rodapé, o título e imagem do filme, além de informações do dia da semana e horário da sessão;
 
-### `npm test`
+- **Confirmação da compra**: tela de sucesso exibindo a confirmação da compra e suas informações: nome do filme e horário - data da sessão / ingressos comprados / dados do comprador fornecidos pelo próprio usuário na seleção de assentos. Há também, depois das informações citadas, um botão clicável para navegar de volta para a tela incial (listagem de filmes), caso o usuário queira fazer outra compra ou simplesmente olhar o catálogo de filmes novamente;
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias/linguagens/bibliotecas utilizadas:
 
-### `npm run build`
+- React
+- React Router Dom
+- Axios
+- Styled Components
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Como executar o projeto localmente:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Instalar dependências: rodar o comando "npm install" no terminal para instalação das dependências;
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Seguir as instruções do arquivo .env.example situado na raíz do projeto;
 
-### `npm run eject`
+- Após todas as etapas anteriores, executar o código com o comando "npm start", no terminal, para poder visualizar localmente a aplicação.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Links do deploy funcional:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- https://projeto10-cineflex-novo.vercel.app/
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- https://projeto10-cineflex-novo-patrickdemurtas.vercel.app/
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- https://projeto10-cineflex-novo-git-main-patrickdemurtas.vercel.app/
 
-## Learn More
+## Sugestões:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Sugestões e contribuições são bem-vindas, assim como apontamento de bugs e melhorias de código.
