@@ -37,7 +37,7 @@ export default function TelaSucesso({ sucesso, setSucesso }) {
                 <p>CPF: {sucesso.cpf}</p>
             </Comprador>
 
-            <Link to="/">
+            <Link to="/" style={{textDecoration: 'none'}}>
                 <ButtonVoltar>
                     <p>Voltar para Home</p>
                 </ButtonVoltar>
